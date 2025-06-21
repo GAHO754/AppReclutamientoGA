@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Generar ZIP</title>
+  <link rel="stylesheet" href="genenrarzip.css">
+  <link rel="icon" type="image/png" href="icons8-document-94.png">
+  <style>
+    #nombreManualContainer {
+      margin: 30px auto 0;
+      max-width: 600px;
+      text-align: center;
+    }
+
+    #nombreManualContainer label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    #nombreManual {
+      padding: 12px;
+      width: 90%;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Vista previa de documentos escaneados</h1>
+  <div id="preview-container"></div>
+
+  <!-- 🔹 Campo para capturar o mostrar el nombre del trabajador -->
+  <div id="nombreManualContainer">
+    <label for="nombreManual">👤 Nombre del trabajador:</label>
+    <input type="text" id="nombreManual" placeholder="Escribe o detecta el nombre del trabajador" />
+  </div>
+
+  <div class="buttons">
+    <button class="secondary" id="btnRegresar">⬅️ Regresar</button>
+    <button class="primary" id="btnGenerarZIP">📁 Generar ZIP</button>
+    <button class="whatsapp" id="btnWhatsApp">📤 Compartir por WhatsApp</button>
+    <button class="email" id="btnEmail">✉️ Enviar por correo</button>
+    <button class="inicio" id="btnInicio">🏠 Volver al inicio</button>
+    <a id="descargarZip" class="boton" style="display:none;" download="documentos.zip">⬇️ Descargar ZIP</a>
+  </div>
+
+  <div id="mensajeExito">
+    <h3>✅ ZIP generado exitosamente</h3>
+    <div id="listaDocs">
+      <strong>Documentos incluidos:</strong>
+      <ul id="listaDocumentos"></ul>
+    </div>
+  </div>
+
+  <!-- Scripts necesarios -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@2.1.5/dist/tesseract.min.js"></script>
+  <script src="zip.js"></script>
+</body>
+</html>
